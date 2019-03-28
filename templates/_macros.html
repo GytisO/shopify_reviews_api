@@ -1,0 +1,90 @@
+{% macro header(name) %}
+<div class="jumbotron jumbotron-fluid">
+    <div class="container">
+    <h1 class="display-4">
+        {{ name }}
+    </h1>
+    </div>
+</div>
+{% endmacro %}
+
+{% macro displayStatus(status) %}
+<div class="alert alert-success" role="alert">
+  {{status}}
+</div>
+
+{% endmacro %}
+
+{% macro displayComments(comments) %}
+
+{% for comment in comments %}
+<div class="card" style="margin:10px">
+  <div class="card-body">
+    <h5 class="card-title">{{ comment['author'] }} </h5>
+    <h6 class="card-subtitle mb-2 text-muted">{{ comment['rating'] }}</h6>
+    <p class="card-text">{{ comment['comment'] }}</p>
+  </div>
+</div>
+{% endfor %}
+{% endmacro %}
+
+
+{% macro displayButtons(api) %}
+
+<ul class='pagination'>
+    <li class="page-item">
+        <a class="page-link" href="{{ api }}" aria-label="View API" id="API">
+            View API
+        </a>
+    </li>
+</ul>
+
+{% endmacro %}
+
+
+
+{% macro displayRatings() %}
+<div class="container">
+<ul class='pagination'>
+    <li class="page-item">
+        <a class="page-link" href="{{ '/' }}" aria-label="all">
+            Show all
+        </a>
+    </li>
+    <li class="page-item">
+        <a class="page-link" href="{{ '/rating_1' }}" aria-label="rating1">
+            1 of 5 stars
+        </a>
+    </li>
+    <li class="page-item">
+        <a class="page-link" href="{{ 'rating_2' }}" aria-label="rating2">
+            2 of 5 stars
+        </a>
+    </li>
+    <li class="page-item">
+      <a class="page-link" href="{{ '/rating_3' }}" aria-label="rating3">
+          3 of 5 stars
+      </a>
+    </li>
+    <li class="page-item">
+      <a class="page-link" href="{{ '/rating_4' }}" aria-label="rating4">
+          4 of 5 stars
+      </a>
+    </li>
+    <li class="page-item">
+      <a class="page-link" href="{{ '/rating_5' }}" aria-label="rating5">
+          5 of 5 stars
+      </a>
+    </li>
+</ul>
+<div>
+
+{% endmacro %}
+
+{% macro displayScrapeButton() %}
+
+<div class='container'>
+
+            <a href="{{ '/scrape' }}" id=scraping><button class='btn btn-primary btn-lg'>Scrape reviews</button></a>
+</div>
+{% endmacro %}

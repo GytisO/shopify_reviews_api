@@ -1,0 +1,36 @@
+{% from "_macros.html" import header %}
+{% from "_macros.html" import displayStatus %}
+{% from "_macros.html" import displayComments %}
+{% from "_macros.html" import displayButtons %}
+{% from "_macros.html" import displayRatings %}
+{% from "_macros.html" import displayScrapeButton %}
+
+
+
+
+
+<html>
+<head>
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+    <title>Omnisend reviews</title>
+</head>
+<body>
+<div class="container">
+{{ header(name) }}
+
+<div class="container" style="padding: 5px;">
+{{ displayScrapeButton() }}
+
+{{ displayStatus(status) }}
+</div>
+
+{{ displayRatings() }}
+
+{{ displayButtons(api) }}
+
+{{ displayComments(comments) }}
+
+</div>
+</body>
+</html>
