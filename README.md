@@ -1,4 +1,4 @@
-# shopify_reviews_api
+# shopify reviews api
 app built on python with flask to run locally: FLASK_APP=app.py flask run to run only scraper for reviews: python3 scraper.py
 
 Scraping might take a while, it depends on number of reviews. Scraping speed is between 2-4 secs/page.
