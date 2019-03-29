@@ -1,7 +1,7 @@
 # shopify reviews api
 app built on python3 with flask. 
-To run locally: FLASK_APP=app.py flask run 
-To run only scraper for reviews: python3 scraper.py
+To run locally - in terminal: FLASK_APP=app.py flask run 
+To run only scraper for reviews - in terminal: python3 scraper.py
   all scraped reviews are stored in mongodb or csv file. To view them from database you should visit working app url (watch below)
   
 Scraping might take a while, it depends on number of reviews. Scraping speed is between 1-2 secs/page.
