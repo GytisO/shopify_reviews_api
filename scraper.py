@@ -3,6 +3,8 @@ import pymongo
 from bs4 import BeautifulSoup
 from time import sleep
 from random import randint, choice
+from csv import writer, DictWriter
+
 
 BASE_URL = "https://apps.shopify.com"
 
@@ -31,14 +33,10 @@ def scrape_comments():
         sleep(randint(2, 4))
 
     print("DONE")
-    ask = input("\nDo you want to print all reviews? (y/n) ").lower()
-    if ask == "y":
-        print(all_comments)
     return all_comments
 
 
 def write_comments_to_db(comments):
-
     client = pymongo.MongoClient(
         "mongodb+srv://new-user:newuser1234@golangcluster-hqxdo.mongodb.net/test?retryWrites=true")
     db = client.omnisend
@@ -47,5 +45,18 @@ def write_comments_to_db(comments):
     posts.insert_many(comments)
 
 
+def write_comments_to_csv(comments):
+    with open("output.csv", "w") as file:
+        headers = ["comment", "rating", "author"]
+        csv_writer = DictWriter(file, fieldnames=headers)
+        csv_writer.writeheader()
+        for comment in comments:
+            csv_writer.writerow(comment)
+
+
 comments = scrape_comments()
+ask = input(
+    "\nWhere do you want to store reviews? (csv/db)\n").lower()
+if ask == "csv":
+    write_comments_to_csv(comments)
 write_comments_to_db(comments)
